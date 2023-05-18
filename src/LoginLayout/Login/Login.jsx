@@ -1,42 +1,66 @@
 import { Link } from "react-router-dom";
+import SocialLogin from "../SocialLogin/SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext)
+
+    const handleLogin = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(result)
+                form.reset();
+            })
+            .catch(error => console.log(error))
+    }
+
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="w-1/2">
-                        <img src="https://img.freepik.com/free-vector/data-security-technology-background-vector-blue-tone_53876-112201.jpg?w=740&t=st=1684349342~exp=1684349942~hmac=1cddf55f689f47bab2076c2cbe5fd6e3e36924855bb4a45fbb9168e78c468c3a" alt="" />
+                        <img src="https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information-concept-illustration_335657-1661.jpg?w=740&t=st=1684349850~exp=1684350450~hmac=178d3f39e14a92771bfe0b10f485f78f6bb5775e045e73270a6def7d458bacaf" alt="" />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div className="card-body">
-                        <h1 className="text-3xl text-center font-bold">Login</h1>
-                        <form >
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="text" name='email' placeholder="email" className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div>
-                            <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login" />
-                            </div>
-                        </form>
-                        <p className='my-4 text-center'>New to Car Doctors <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link>
-                        </p>
-                        {/* <SocialLogin></SocialLogin> */}
+                    <div className="card flex-shrink-0 w-full max-w-sm   bg-base-100">
+                        <div className="card-body">
+                            <h1 className="text-3xl text-center font-bold">Login</h1>
+                            <form onSubmit={handleLogin} >
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                                    <label className="label">
+                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    </label>
+                                </div>
+                                <div className="form-control mt-6">
+                                    <input className="btn btn-primary" type="submit" value="Login" />
+                                </div>
+                            </form>
+                            <p className='my-4 text-center'>New to here please<Link className='text-orange-600 font-bold' to="/signup">Register</Link>
+                            </p>
+                            <SocialLogin></SocialLogin>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
