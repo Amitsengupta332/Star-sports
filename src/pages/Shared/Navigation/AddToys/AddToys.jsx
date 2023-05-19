@@ -16,19 +16,32 @@ const AddToys = () => {
         const picture = form.picture.value;
         const toyName = form.name.value;
         const sellerName = form.seller.value;
-        const sellerEmail = form.email.value;
+        const email = user?.email;
         const subCategory = form.subCategory.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
 
-        const newToy = { picture, toyName, sellerName, sellerEmail, subCategory, price, rating, quantity, description }
+        // const newToy = { picture, toyName, sellerName, email, subCategory, price, rating, quantity, description }
+        // console.log(newToy);
+
+        const newToy = {
+            customerName: sellerName,
+            email,
+            picture,
+            toyName,
+            subCategory,
+            price,
+            rating,
+            quantity,
+            description             
+        }
         console.log(newToy);
 
 
-        // send data to the server
-        fetch('http://localhost:5000/toys', {
+        // // send data to the server
+        fetch('http://localhost:5000/addToys', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
