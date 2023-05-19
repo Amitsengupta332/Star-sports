@@ -1,20 +1,69 @@
+import { data } from "autoprefixer";
+import { useContext } from "react";
+import Swal from 'sweetalert2'
+import { AuthContext } from "../../../../Provider/AuthProvider";
 
 
 const AddToys = () => {
+
+    const { user } = useContext(AuthContext)
+
+    const handleAddToy = event => {
+        event.preventDefault();
+
+        const form = event.target;
+
+        const picture = form.picture.value;
+        const toyName = form.name.value;
+        const sellerName = form.seller.value;
+        const sellerEmail = form.email.value;
+        const subCategory = form.subCategory.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const quantity = form.quantity.value;
+        const description = form.description.value;
+
+        const newToy = { picture, toyName, sellerName, sellerEmail, subCategory, price, rating, quantity, description }
+        console.log(newToy);
+
+
+        // send data to the server
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newToy)
+        }
+
+        )
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Added Successful'
+                    })
+                }
+            })
+    }
     return (
         <div>
             <div className=" p-24">
                 <h2 className="text-3xl text-center mb-5 font-extrabold">Add A Toy</h2>
-                <form  >
+                <form onSubmit={handleAddToy} >
                     {/* Photo Url and Toy name */}
                     <div className="md:flex mb-8">
                         <div className="form-control md:w-1/2">
                             <label className="label">
-                                <span className="label-text">Photo Url</span>
+                                <span className="label-text">Picture Url</span>
                             </label>
                             <label className="input-group">
                                 <input type="text"
-                                    name="photo" placeholder="Photo Url" className="input input-bordered w-full" />
+                                    name="picture" placeholder="Picture Url" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2">
@@ -33,7 +82,9 @@ const AddToys = () => {
                                 <span className="label-text">Seller Name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="seller" placeholder="seller" className="input input-bordered w-full" />
+                                <input type="text" name="seller"
+                                    defaultValue={user?.displayName}
+                                    placeholder="seller" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2">
@@ -42,6 +93,7 @@ const AddToys = () => {
                             </label>
                             <label className="input-group">
                                 <input type="text"
+                                    defaultValue={user?.email}
                                     name="email" placeholder="seller email" className="input input-bordered w-full" />
                             </label>
                         </div>
@@ -53,7 +105,7 @@ const AddToys = () => {
                                 <span className="label-text">Sub-Category</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
+                                <input type="text" name="subCategory" placeholder="Sub Category" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2">
