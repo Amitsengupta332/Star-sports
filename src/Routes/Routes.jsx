@@ -6,6 +6,7 @@ import Login from "../LoginLayout/Login/Login";
 import Register from "../LoginLayout/Register/Register";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Blogs from "../pages/Shared/Navigation/Blogs/Blogs";
+import AddToys from "../pages/Shared/Navigation/AddToys/AddToys";
  
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <Register></Register>
             },
+            {
+                path:'/addToys',
+                element:<AddToys></AddToys>
+            }
             
             
         ]
