@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyToysRow = ({ toys }) => {
+const MyToysRow = ({ toys, handleMyToysUpdate }) => {
     console.log(toys);
     const { _id, picture, toyName, customerName, email, subcategory, price, rating, quantity, description } = toys;
     return (
