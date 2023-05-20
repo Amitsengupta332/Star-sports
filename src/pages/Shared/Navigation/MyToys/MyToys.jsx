@@ -15,12 +15,6 @@ const MyToys = () => {
             .then(data => {
                 console.log(data);
                 setMyToys(data);
-
-                // if (!data.error) {
-
-                //     setMyToys(data);
-
-                // }
             });
     }, [user])
 
