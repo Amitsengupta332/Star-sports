@@ -30,7 +30,7 @@ const MyToys = () => {
                             <tr>
                                 {/* <th className="py-2">No</th> */}
                                 <th className="py-2">Image</th>
-                                <th className="py-2">Name</th>
+                                <th className="py-2">Toy Name</th>
                                 <th className="py-2">Seller Name</th>
                                 <th className="py-2">Seller Email</th>
                                 <th className="py-2">Price</th>

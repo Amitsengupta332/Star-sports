@@ -2,7 +2,7 @@ import React from 'react';
 
 const MyToysRow = ({ toys }) => {
     console.log(toys);
-    const { _id, picture, name, sellerName, email, subcategory, price, rating, quantity, description } = toys;
+    const { _id, picture, toyName, customerName, email, subcategory, price, rating, quantity, description } = toys;
     return (
         <>
             <tr>
@@ -12,8 +12,8 @@ const MyToysRow = ({ toys }) => {
                     </div>
                 </div></td>
 
-                <td>{name}</td>
-                <td>{sellerName}</td>
+                <td>{toyName}</td>
+                <td>{customerName}</td>
                 <td>{email}</td>
                 <td>${price}</td>
                 <td>{rating}</td>
