@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../Provider/AuthProvider';
 import MyToysRow from '../MyToysRow/MyToysRow';
+import Swal from 'sweetalert2';
 
 
 const MyToys = () => {
@@ -13,19 +14,51 @@ const MyToys = () => {
         fetch(`http://localhost:5000/myToys/${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setMyToys(data);
             });
     }, [user])
 
 
-    const handleMyToysUpdate = (data) =>{
+    const handleDelete = _id => {
+        console.log(_id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log('delete confirm');
+                fetch(`http://localhost:5000/deleteToys/${_id} `,{
+                    method: 'DELETE',
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0){
+                        Swal.fire(
+                            'Deleted!',
+                            'Your  Toy has been deleted.',
+                            'success'
+                        )
 
+                        const remaining = myToys.filter(booking => booking._id !== _id);
+                        setMyToys(remaining)
+
+                    }
+                })
+            }
+        })
     }
 
 
+    // const handleMyToysUpdate = (data) =>{
 
-
+    // }
 
 
     return (
@@ -54,7 +87,8 @@ const MyToys = () => {
                                 <MyToysRow
                                     key={toys._id}
                                     toys={toys}
-                                    handleMyToysUpdate={handleMyToysUpdate}
+                                    handleDelete={handleDelete}
+                                    // handleMyToysUpdate={handleMyToysUpdate}
                                 >
 
                                 </MyToysRow>
