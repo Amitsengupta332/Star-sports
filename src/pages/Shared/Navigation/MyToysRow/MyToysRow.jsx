@@ -1,44 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
  
 
 const MyToysRow = ({ toys, handleDelete  }) => {
     // console.log(toys);
     const { _id, picture, toyName, customerName, email, subcategory, price, rating, quantity, description } = toys;
 
-    // const handleDelete = _id => {
-    //     console.log(_id);
-    //     Swal.fire({
-    //         title: 'Are you sure?',
-    //         text: "You won't be able to revert this!",
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#3085d6',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, delete it!'
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             console.log('delete confirm');
-    //             fetch(`http://localhost:5000/deleteToys/${_id} `,{
-    //                 method: 'DELETE',
-    //             })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 console.log(data);
-    //                 if (data.deletedCount > 0){
-    //                     Swal.fire(
-    //                         'Deleted!',
-    //                         'Your  Toy has been deleted.',
-    //                         'success'
-    //                     )
-    //                 }
-    //             })
-    //         }
-    //     })
-    // }
-
- 
-
-
+    
 
     return (
         <>
@@ -56,9 +24,9 @@ const MyToysRow = ({ toys, handleDelete  }) => {
                 <td>{rating}</td>
                 <td>{quantity}</td>
                 <td>{description}</td>
+                {/* /update */}
                 <td>
-                    <button className="btn  btn-primary btn-sm">Update</button>
-
+                    <Link to={`/update/${_id}`} ><button className="btn  btn-primary btn-sm">Update</button></Link>
                 </td>
                 <td>
                     <button
