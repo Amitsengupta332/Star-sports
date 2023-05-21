@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import banner from '../../../assets/top-view-still-life-sport-composition-23-2149006372.jpg'
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Banner = () => {
+
+    // aos
+    useEffect(() => {
+        AOS.init({
+          duration: 800, // Animation duration
+          offset: 200, // Offset (in pixels) from the original trigger point
+        });
+      }, []);
+
+    
+    
     return (
         <div>
             <div className="flex items-center justify-center h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${banner})` }} >
-                <div className="max-w-xl w-full px-4 sm:px-6 lg:px-8 text-center">
+                <div className="max-w-xl w-full px-4 sm:px-6 lg:px-8 text-center " data-aos="fade-up">
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white ">
                         Get Ready to Play
                     </h1>

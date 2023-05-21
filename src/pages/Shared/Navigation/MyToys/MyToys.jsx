@@ -56,13 +56,11 @@ const MyToys = () => {
     }
 
 
-    // const handleMyToysUpdate = (data) =>{
 
-    // }
 
 
     return (
-        <div>
+        <div className='mb-20'>
             <h2>my toy here: {myToys.length} </h2>
             <div>
                 <div className="max-w-full overflow-hidden ">

@@ -57,7 +57,15 @@ const Navbar = () => {
                             <li><Link to='/login'>Login</Link></li> */}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">All-Star Sports</Link>
+                    <div className="w-12 rounded-full avatar">
+                        <Link to='/'>
+                            <img src="https://img.freepik.com/free-photo/tennis-player-colorful-circles-paper-style_23-2148930648.jpg?w=740&t=st=1684402365~exp=1684402965~hmac=3078e8b9e2dbdcb1b654a0f97957f4104acce72dc27dff7871c836d95c42e981" alt="" />
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to='/' className="btn btn-ghost normal-case text-xl">All-Star Sports</Link>
+                    </div>
+
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
