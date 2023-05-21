@@ -10,10 +10,11 @@ const MyToys = () => {
     const { user } = useContext(AuthContext)
     useTitle('MyToys')
 
+    //https://toy-marketplace-server-hazel.vercel.app/myToys/${user?.email}
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/myToys/${user?.email}`)
+        fetch(`https://toy-marketplace-server-hazel.vercel.app/myToys/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -21,6 +22,8 @@ const MyToys = () => {
             });
     }, [user])
 
+
+    //https://toy-marketplace-server-hazel.vercel.app/deleteToys/${_id} 
 
     const handleDelete = _id => {
         console.log(_id);
@@ -35,7 +38,7 @@ const MyToys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log('delete confirm');
-                fetch(`http://localhost:5000/deleteToys/${_id} `,{
+                fetch(`https://toy-marketplace-server-hazel.vercel.app/deleteToys/${_id} `,{
                     method: 'DELETE',
                 })
                 .then(res => res.json())

@@ -8,8 +8,9 @@ const AllToys = () => {
     const [searchText, setSearchText] = useState("");
     useTitle('AllToys')
 
+    //https://toy-marketplace-server-hazel.vercel.app/allToys
     useEffect(() => {
-        fetch('http://localhost:5000/allToys')
+        fetch('https://toy-marketplace-server-hazel.vercel.app/allToys')
             .then(res => res.json())
             .then(result => {
                 setAllToys(result)
@@ -18,7 +19,7 @@ const AllToys = () => {
 
     
     // const handleSearch = () => {
-    //     fetch(`http://localhost:5000/allToys/${searchText}`)
+    //     fetch(`https://toy-marketplace-server-hazel.vercel.app/allToys/${searchText}`)
     //         .then((res) => res.json())
     //         .then((data) => {
     //             console.log(data);
@@ -30,7 +31,7 @@ const AllToys = () => {
     // };
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/getToyByText/${searchText}`)
+        fetch(`https://toy-marketplace-server-hazel.vercel.app/getToyByText/${searchText}`)
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

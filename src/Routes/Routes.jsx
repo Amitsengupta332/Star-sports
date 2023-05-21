@@ -15,6 +15,8 @@ import Update from "../pages/Shared/Navigation/Update/Update";
 
 
 const router = createBrowserRouter([
+    //https://toy-marketplace-server-hazel.vercel.app/viewDetails/${params.id}
+    //https://toy-marketplace-server-hazel.vercel.app/updated/${params.id}
     {
         path: "/",
         element: <Main></Main>,
@@ -53,12 +55,12 @@ const router = createBrowserRouter([
             {
                 path: '/viewDetails/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/viewDetails/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-marketplace-server-hazel.vercel.app/viewDetails/${params.id}`)
             },
             {
                 path: '/update/:id',
                 element: <Update></Update>,
-                loader: ({params}) => fetch(`http://localhost:5000/updated/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-marketplace-server-hazel.vercel.app/updated/${params.id}`)
             }
 
 

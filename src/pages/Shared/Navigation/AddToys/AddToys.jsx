@@ -42,9 +42,10 @@ const AddToys = () => {
         }
         console.log(newToy);
 
+        //https://toy-marketplace-server-hazel.vercel.app/addToys
 
         // // send data to the server
-        fetch('http://localhost:5000/addToys', {
+        fetch('https://toy-marketplace-server-hazel.vercel.app/addToys', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

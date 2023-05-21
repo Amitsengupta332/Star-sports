@@ -25,8 +25,9 @@ const Update = () => {
         }
         console.log(updatedToy);
 
+        //https://toy-marketplace-server-hazel.vercel.app/updateToys/${_id}
         //send data to the server
-        fetch(`http://localhost:5000/updateToys/${_id}`, {
+        fetch(`https://toy-marketplace-server-hazel.vercel.app/updateToys/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
