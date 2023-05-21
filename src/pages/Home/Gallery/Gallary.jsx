@@ -6,8 +6,10 @@ const Gallary = () => {
 
     useEffect(() => {
         AOS.init({
+         
           duration: 800, // Animation duration
-          offset: 200, // Offset (in pixels) from the original trigger point
+          offset: 200,
+          multiple: true, // Offset (in pixels) from the original trigger point
         });
       }, []);
       
@@ -27,7 +29,7 @@ const Gallary = () => {
                     <div className="card-details absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
                         <div className="text-white text-center p-6 bg-black bg-opacity-50">
                             <h2 className="card-title text-2xl font-bold mb-4 leading-tight">Football</h2>
-                            <p className='text-lg leading-snug'>Price: $5</p>
+                            {/* <p className='text-lg leading-snug'>Price: $5</p> */}
                         </div>
                     </div>
                 </div>
@@ -42,7 +44,7 @@ const Gallary = () => {
                     <div className="card-details absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
                         <div className="text-white text-center bg-black bg-opacity-50 p-6">
                             <h2 className="card-title text-2xl font-bold mb-4 leading-tight">Cricket Ball</h2>
-                            <p className='text-lg leading-snug'>Price: $4</p>
+                            {/* <p className='text-lg leading-snug'>Price: $4</p> */}
                         </div>
                     </div>
                 </div>
@@ -57,7 +59,7 @@ const Gallary = () => {
                     <div className="card-details absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
                         <div className="text-white text-center p-6 bg-black bg-opacity-50">
                             <h2 className="card-title text-2xl font-bold mb-4 leading-tight">Cricket Bat</h2>
-                            <p className='text-lg leading-snug'>Price: $10</p>
+                            {/* <p className='text-lg leading-snug'>Price: $10</p> */}
                         </div>
                     </div>
                 </div>
@@ -72,7 +74,7 @@ const Gallary = () => {
                     <div className="card-details absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
                         <div className="text-white text-center p-6 bg-black bg-opacity-50">
                             <h2 className="card-title">Badminton Racket</h2>
-                            <p className='text-lg leading-snug'>Price: $10</p>
+                            {/* <p className='text-lg leading-snug'>Price: $10</p> */}
                         </div>
                     </div>
                 </div>
@@ -87,7 +89,7 @@ const Gallary = () => {
                     <div className="card-details absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
                         <div className="text-white text-center p-6 bg-black bg-opacity-50">
                             <h2 className="card-title">Badminton Shuttlecock</h2>
-                            <p className='text-lg leading-snug'>Price: $2</p>
+                            {/* <p className='text-lg leading-snug'>Price: $2</p> */}
                         </div>
                     </div>
                 </div>
@@ -102,7 +104,7 @@ const Gallary = () => {
                     <div className="card-details absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
                         <div className="text-white text-center p-6 bg-black bg-opacity-50">
                             <h2 className="card-title text-2xl font-bold mb-4 leading-tight">Skateboard</h2>
-                            <p className='text-lg leading-snug'>Price: $15</p>
+                            {/* <p className='text-lg leading-snug'>Price: $15</p> */}
                         </div>
                     </div>
                 </div>

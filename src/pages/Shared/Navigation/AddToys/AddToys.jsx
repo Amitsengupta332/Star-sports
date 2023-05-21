@@ -114,23 +114,16 @@ const AddToys = () => {
                     </div>
                     {/*  category and price*/}
                     <div className="md:flex mb-8">
-                        {/* <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text">Sub-Category</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="subCategory" placeholder="FootBall Cricket Badminton" className="input input-bordered w-full" />
-                            </label>
-                        </div> */}
+ 
 
 
                         <div className="form-control md:w-1/2">
                             <label className="label">
-                                <span className="label-text">Sub-Category</span>
+                                <span className="label-text">Category</span>
                             </label>
                             <label className="input-group">
                                 <select name="subCategory" className="select select-bordered w-full">
-                                    <option value="">Sports Subcategory</option>
+                                    <option value="">Sports category</option>
                                     <option value="Football">Football</option>
                                     <option value="Cricket">Cricket</option>
                                     <option value="Badminton">Badminton</option>
