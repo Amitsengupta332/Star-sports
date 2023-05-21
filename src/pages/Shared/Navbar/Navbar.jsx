@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, loading } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
@@ -63,25 +63,31 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div>
-                        <Link to='/' className="btn btn-ghost normal-case text-xl">All-Star Sports</Link>
+                        <Link to='/' className="btn btn-ghost normal-case text-xl sm:text-2xl">Star Sports</Link>
                     </div>
 
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navItems}
-                        {/* <li><Link to='/'>Home</Link></li>
-                        <li tabIndex={0}>
-                            <Link to='/blog'>
-                                Blog
-                            </Link>
-
-                        </li>
-                        <li><Link>All Toys</Link></li>
-                        <li><Link>My Toys</Link></li>
-                        <li><Link>Add A Toy</Link></li>
-                        <li><Link to='/login'>Login</Link></li> */}
                     </ul>
+                    <div>
+                        {
+                            user && !loading &&
+                            <>
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className=" w-12 h-12 rounded-full">
+                                        {
+                                            user.photoURL == null && <img src="https://i.ibb.co/3YZNVgN/pro.png" className="w-full h-full rounded-full" alt="User Avatar" />
+                                        }
+                                        {user.photoURL && <img src={user.photoURL} className="w-full h-full rounded-full" alt="User Avatar" title={user.displayName} />}
+
+
+                                    </div>
+                                </label>
+                            </>
+                        }
+                    </div>
                 </div>
                 {/* <div className="navbar-end">
                     <a className="btn">Get started</a>
